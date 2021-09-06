@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "id": "{F7A352DD-EEF2-DDDB-066E-788D23BDB89A}",
-=======
-  "id": "{F7A35269-4455-BBDB-066E-758D23BDB89A}",
->>>>>>> 7ac495f06c651500e8b196927ba4dc54813d7b30
   "name": "ProwlNotifications",
   "type": 3,
   "vendor": "Prowl",
