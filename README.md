@@ -1,6 +1,6 @@
 
-FORK form https://github.com/IQLiving/IQLProwlNofitication
-
+**FORK** form https://github.com/IQLiving/IQLProwlNofitication
+https://www.prowlapp.com/
 
 # IQLProwlNotification
 
