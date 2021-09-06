@@ -45,7 +45,7 @@ class ProwlNotifications extends IPSModule {
         }
     }
 
-    public function Send(string $subject, string $message, integer $priority ) {
+    public function Send(string $subject, string $message, int $priority ) {
         if(strlen($subject) > 1024) {
             return "Subject zu lang";
         }
@@ -63,7 +63,7 @@ class ProwlNotifications extends IPSModule {
         return false;
     }
 
-    public function SendEx(string $username, string $subject, string $message, integer $priority ) {
+    public function SendEx(string $username, string $subject, string $message, int $priority ) {
         $newapikey = "";
         if(strlen($subject) > 1024) {
             return "Subject zu lang";
@@ -128,7 +128,7 @@ class ProwlNotifications extends IPSModule {
         }
     }
 
-    private function ProwlRequest( string $command, string $apikey, string $subject, string $message, integer $priority ) {
+    private function ProwlRequest( string $command, string $apikey, string $subject, string $message, int $priority ) {
         $post_data['apikey'] = $apikey;
         $post_data['event'] = $subject;
         $post_data['description'] = $message;
