@@ -21,7 +21,7 @@ class ProwlNotifications extends IPSModule {
         $this->EnableAction("STATE");
 
         $this->SetStatus(102);
-        $iqlpnguid = "{F7A35269-4AF2-BBDB-066E-758D23BDB89A}";
+        $iqlpnguid = "{F7A352DD-EEF2-DDDB-066E-788D23BDB89A}";
         $iqlpninstanzen = IPS_GetInstanceListByModuleID($iqlpnguid);
         foreach($iqlpninstanzen as $modulentry) {
             if($modulentry != $this->InstanceID) {
@@ -77,7 +77,7 @@ class ProwlNotifications extends IPSModule {
         if(preg_match('/,/',$username)) {
             $apikeyarray = array();
             $userarray = explode(",",$username);
-            $iqlpnguid = "{F7A35269-4AF2-BBDB-066E-758D23BDB89A}";
+            $iqlpnguid = "{F7A352DD-EEF2-DDDB-066E-788D23BDB89A}";
             $iqlpninstanzen = IPS_GetInstanceListByModuleID($iqlpnguid);
             foreach($iqlpninstanzen as $moduleid) {
                 foreach($userarray as $userentry) {
