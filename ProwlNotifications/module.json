@@ -1,11 +1,11 @@
 {
   "id": "{F7A352DD-EEF2-DDDB-066E-788D23BDB89A}",
-  "name": "ProwlNotifications",
+  "name": "Prowl Notifications",
   "type": 3,
   "vendor": "Prowl",
   "aliases":
   [
-    "ProwlNotifications"
+    "Prowl Notifications"
   ],
   "parentRequirements": [],
   "childRequirements": [],
