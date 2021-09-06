@@ -1,0 +1,17 @@
+{
+  "elements":
+  [
+    { "name": "applicationname" ,"type": "ValidationTextBox", "caption": "Applicationsname" },
+    { "name": "username" ,"type": "ValidationTextBox", "caption": "Benutzername" },
+    { "name": "apikey", "type": "ValidationTextBox", "caption": "API-Key" }
+  ],
+  "status":
+  [
+    { "code": 101, "icon": "active", "caption": "Konfiguration gültig." },
+    { "code": 102, "icon": "active", "caption": "Konfiguration gültig." },
+    { "code": 201, "icon": "error", "caption": "Der API-Key ist bereits in einer anderen Instanz vorhanden!" },
+    { "code": 202, "icon": "error", "caption": "Der Benutzername ist bereits in einer anderen Instanz vorhanden!" },
+    { "code": 203, "icon": "error", "caption": "Der API-Key ist bei Prowl nicht bekannt!" },
+    { "code": 204, "icon": "error", "caption": "Der Benutzername enthält ungültige Zeichen!" }
+  ]
+}
