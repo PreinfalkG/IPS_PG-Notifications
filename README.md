@@ -1,20 +1,50 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+FORK form https://github.com/IQLiving/IQLProwlNofitication
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+# IQLProwlNotification
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+Ein Modul zum Versand von Push Nachrichten über den Dienst Prowl.
+
+**Konfigurationsformular:**
+
+* **Applicationsname** steht in der Push Notification über der Betreffzeile, dieser kann individuell angepasst werden.
+* **Benutzername** dieser dient nur als Alias zum Versand von Push Notifications über die Funktion IQLPN_SendEx. Der Benutzername darf nicht doppelt vergeben werden und darf kein Komma enthalten!
+* **API-Key** dies ist der von Prowl zur Verfügung gestellte API-Key. Der API-Key darf nicht doppelt vergeben werden!
+
+
+**Befehlsreferenz:**
+
+**IQLPN_Send** dient zum Versand von Push Notifications
+```php
+<?php
+IQLPN_Send( interger $InstanceID, string $subject, string $message, integer $priority );
+?>
+```
+* **InstanceID** die ID der Instanz
+* **subject** die Betreffzeile der Push Notification (darf maximal **1024** Zeichen enthalten)
+* **message** Inhalt der Push Notification (darf maximal **10000** Zeichen enthalten)
+* **priority** Wert von -2 bis 2
+    * -2 = sehr niedrig
+    * -1 = mittelmäßig
+    * 0 = normal
+    * 1 = hoch
+    * 2 = Notfall
+
+
+**IQLPN_SendEx** dient zum Versand von Push Notifications an mehrere Benutzer
+```php
+<?php
+IQLPN_SendEx( interger $InstanceID, string $username, string $subject, string $message, integer $priority );
+?>
+```
+* **InstanceID** die ID der Instanz
+* **username** der Benutzername, für den Versand an mehrere Benutzer werden diese einfach durch Komma separiert angegeben ("user1,user2,user3")
+* **subject** die Betreffzeile der Push Notification (darf maximal **1024** Zeichen enthalten)
+* **message** Inhalt der Push Notification (darf maximal **10000** Zeichen enthalten)
+* **priority** Wert von -2 bis 2
+    * -2 = sehr niedrig
+    * -1 = mittelmäßig
+    * 0 = normal
+    * 1 = hoch
+    * 2 = Notfall
