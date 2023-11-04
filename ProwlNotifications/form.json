@@ -13,5 +13,13 @@
     { "code": 202, "icon": "error", "caption": "Der Benutzername ist bereits in einer anderen Instanz vorhanden!" },
     { "code": 203, "icon": "error", "caption": "Der API-Key ist bei Prowl nicht bekannt!" },
     { "code": 204, "icon": "error", "caption": "Der Benutzername enthält ungültige Zeichen!" }
+  ],
+  "actions": [
+    {
+        "type": "Button",
+        "caption": "Send Test Message",
+        "onClick": "PROWL_SendTestMessage($id, 'Modul Form');"
+    }
   ]
+
 }

@@ -15,7 +15,10 @@ class ProwlNotifications extends IPSModule {
         //Never delete this line!
         parent::ApplyChanges();
 
-        $this->RegisterVariableBoolean("STATE","Status","~Switch",1);
+        $this->RegisterVariableBoolean("STATE","Status","~Switch", 100);
+		$this->RegisterVariableInteger("prowlRequestOkCnt", "Prowl Request OK Cnt", "", 900);
+		$this->RegisterVariableInteger("prowlRequestNotOkCnt", "Prowl Request NOT OK Cnt", "", 910);	
+		$this->RegisterVariableInteger("prowlRequestLast", "Prowl Request Last", "~UnixTimestamp", 920);        
 
         // EnableAction
         $this->EnableAction("STATE");
@@ -43,6 +46,7 @@ class ProwlNotifications extends IPSModule {
                 $this->SetStatus(203);
             }
         }
+
     }
 
     public function Send(string $subject, string $message, int $priority ) {
@@ -154,9 +158,12 @@ class ProwlNotifications extends IPSModule {
             curl_close($curl_connection);
         }
         if(isset($result)) {
+            SetValueInteger($this->GetIDForIdent("prowlRequestOkCnt"), GetValueInteger($this->GetIDForIdent("prowlRequestOkCnt"))+1);
+            SetValueInteger($this->GetIDForIdent("prowlRequestLast"), time());
             return $result;
         }
         else {
+            SetValueInteger($this->GetIDForIdent("prowlRequestNotOkCnt"), GetValueInteger($this->GetIDForIdent("prowlRequestNotOkCnt"))+1);
             return false;
         }
     }
@@ -170,4 +177,10 @@ class ProwlNotifications extends IPSModule {
                 throw new Exception("Invalid ident");
         }
     }
+
+    public function SendTestMessage(string $source) {
+        $msg = sprintf("Test Message form 'IP-Symcoon Prowl Notifications Modul'\n sent from '%s' \n via %s\n @%s", $source, gethostname(), date('d.m.Y H:i:s',time()) );       
+        $this->Send("TeSt", $msg, 1);
+    }
+
 }
